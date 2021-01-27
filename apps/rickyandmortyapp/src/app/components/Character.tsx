@@ -84,18 +84,14 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
 
             <span>
                 <p css={descriptionText}>First seen in:</p>
-                <p css={css`
-                    ${baseText}
-                    
-                `
-                }>
-                    <Link 
-                        css={css`text-decoration: none; color: var(--text); ${activeText}`} 
-                        to={`/episode/${character.episode[0].id}`}
-                    >
-                        {character.episode[0].name}
-                    </Link> 
-                </p>
+                
+                <Link 
+                    css={css`text-decoration: none; color: var(--text); ${activeText}`} 
+                    to={`/episode/${character.episode[0].id}`}
+                >
+                    {character.episode[0].name}
+                </Link> 
+                
             </span>
 
           </article>

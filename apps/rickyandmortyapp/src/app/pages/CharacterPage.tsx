@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
 import { css } from '@emotion/react'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import {Character, ApolloCharacterInterface} from '../../common/interfaces/Character'
 import { ONE_CHARACTER } from '../../common/queries/queries'
 import Loading from '../components/Loading'
@@ -36,7 +36,7 @@ const CharacterPage = () => {
                     margin-right: 3rem;
                     margin-bottom: 3rem;
                 `}
-                src={data.character.image} alt=""
+                src={data.character.image} alt={data.character.name}
             />
 
             <article 
@@ -117,10 +117,15 @@ const CharacterPage = () => {
                             font-size: 1.4rem;
                             ${descriptionText}
                         `}>First seen in:</p>
-                        <p css={css`
-                            ${[baseText, activeText]}
-                        `
-                        }>{data.character.episode[0].name}</p>
+                        <Link 
+                            to={`/episode/${data.character.episode[0].id}`}
+                            css={css`
+                                color: var(--text);
+                                ${activeText}
+                            `}
+                        >
+                            {data.character.episode[0].name}
+                        </Link>
                     </span>
                 </article>
 
@@ -148,6 +153,7 @@ const baseText = css`
 `
 
 const activeText = css`
+    text-decoration: none;
     cursor: pointer;
     &:hover{
         color: var(--hover);
