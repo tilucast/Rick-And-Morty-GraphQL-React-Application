@@ -11,18 +11,18 @@ const Navbar = () => {
             css={css`
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 padding: 1rem 2rem;
             `}
         >   
             <section css={css`
                 display: flex;
-                align-items: flex-start;
-                width: 65%`
-            }>  
+                align-items: flex-start;   
+            `}>  
                 
-            <NavLink to="/">
-                <RickAndMortySvg width={40} height={40}/>
-            </NavLink>
+                <NavLink to="/">
+                    <RickAndMortySvg width={40} height={40}/>
+                </NavLink>
                 
             </section>
             
@@ -33,13 +33,13 @@ const Navbar = () => {
                 align-items: center;
                 font-size: 1.5rem;
                 font-weight: 600;
-                width: 35%;`
-            }>
+             `}>
                 <NavLink to="/about" 
                     css={css`
                         color: var(--background);
                         text-decoration: none;
                         transition: all .2s;
+                        margin-right: 2rem;
                         &:hover{
                             color: var(--hover);
                         }
@@ -63,7 +63,7 @@ const Navbar = () => {
                     href="https://rickandmortyapi.com/help-us"
                     target="blank"
                 >
-                    HELP US
+                    HELP THEM
                 </a>
                 
             </section>

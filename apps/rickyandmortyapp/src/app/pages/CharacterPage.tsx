@@ -30,6 +30,7 @@ const CharacterPage = () => {
 
             <img 
                 css={css`
+                    align-self: flex-start;
                     border: 5px solid var(--hover);
                     border-radius: 8px;
                     overflow: hidden;
@@ -53,7 +54,7 @@ const CharacterPage = () => {
                         justify-content: space-between;
                     `}
                 >
-                    <article css={css`${data.character.name.length >= 17 && 'margin-right: 2rem;'}`}>
+                    <article css={css`${(data.character.name.length || data.character.species.length >= 17 )  && 'margin-right: 2rem;'}`}>
                         <p
                             css={css`
                                 font-size: 1.8rem;
@@ -93,12 +94,14 @@ const CharacterPage = () => {
                                 ${descriptionText}
                             `}> Last known location:</p>
 
-                            <p css={css`
+                            <Link to={`/location/${data.character.location.id}`} css={css`
+                                display: block;
+                                color: var(--text);
                                 ${[baseText, activeText]}
                                 
                             `}>
                                 {data.character.location.name}
-                            </p>
+                            </Link>
                         </span>
 
                         <span>Dimension: {data.character.location.dimension}</span>
@@ -133,7 +136,12 @@ const CharacterPage = () => {
                     <p css={css`font-size: 1.7rem;  margin-bottom: 1rem;`}>Episodes in which this character appears:</p> 
                     {data.character.episode.map(episode => (
                         <article css={css`margin-bottom: 1rem; border-bottom: 2px solid var(--inline-color);`} key={episode.id}>
-                            <p>{episode.name}</p>
+                            <Link 
+                                css={css`color: var(--text); ${[activeText, baseText]}`}
+                                to={`/episode/${episode.id}`}
+                            >
+                                {episode.name}
+                            </Link>
                             <p>{episode.episode}</p>
                             <p>{episode.air_date}</p>
                         </article>

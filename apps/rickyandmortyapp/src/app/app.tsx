@@ -9,6 +9,7 @@ import Episode from './pages/Episode';
 import About from './pages/About';
 import CharacterPage from './pages/CharacterPage';
 import Footer from './components/Footer';
+import Location from './pages/Location';
 
 export function App() {
 
@@ -99,6 +100,10 @@ export function App() {
 
             <Route path="/character/:id">
               <CharacterPage />
+            </Route>
+
+            <Route path="/location/:id">
+              <Location />
             </Route>
 
             <Route path="/about">

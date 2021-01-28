@@ -69,4 +69,20 @@ const ONE_EPISODE = gql`
   }
 `
 
-export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE}
+const ONE_LOCATION = gql`
+  query Location($id: ID!){
+    location(id: $id){
+      id
+      name
+      dimension
+      type
+      residents{
+        id
+        name
+        image
+      }
+    }
+  }
+`
+
+export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE, ONE_LOCATION}

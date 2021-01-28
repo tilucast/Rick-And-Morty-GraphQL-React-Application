@@ -74,12 +74,12 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
             <span>
                 <p css={descriptionText}> Last known location:</p>
 
-                <p css={css`
+                <Link to={`/location/${character.location.id}`} css={css`
+                    color: var(--text);
                     ${[baseText, activeText]}
-                    
                 `}>
                     {character.location.name}
-                </p>
+                </Link>
             </span>
 
             <span>
@@ -107,6 +107,7 @@ const baseText = css`
 `
 
 const activeText = css`
+    text-decoration: none;
     cursor: pointer;
     &:hover{
         color: var(--hover);
