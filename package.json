@@ -30,6 +30,8 @@
     "@apollo/client": "^3.3.7",
     "@emotion/react": "11.0.0",
     "@emotion/styled": "11.0.0",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "babel-plugin-emotion": "^11.0.0",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",

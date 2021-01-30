@@ -25,6 +25,15 @@ const CharacterPage = () => {
                 width: 100%;
                 height: 100%;
                 color: var(--text);
+
+                @keyframes Image {
+                    from {
+                        opacity: 0
+                    }
+                    to{
+                        opacity: 1
+                    }
+                }
             `}
         >   
 
@@ -36,6 +45,7 @@ const CharacterPage = () => {
                     overflow: hidden;
                     margin-right: 3rem;
                     margin-bottom: 3rem;
+                    animation: Image .5s linear;
                 `}
                 src={data.character.image} alt={data.character.name}
             />

@@ -10,6 +10,7 @@ import About from './pages/About';
 import CharacterPage from './pages/CharacterPage';
 import Footer from './components/Footer';
 import Location from './pages/Location';
+import Filters from './pages/Filters';
 
 export function App() {
 
@@ -108,6 +109,10 @@ export function App() {
 
             <Route path="/about">
               <About />
+            </Route>
+
+            <Route path="/filters">
+              <Filters />
             </Route>
 
             <Route path="/" exact>

@@ -29,6 +29,11 @@ interface ApolloCharacterInterface {
 
 interface ApolloCharactersInterface {
     characters: {
+        info: {
+            pages: number,
+            next: number,
+            prev: number
+        }
         results: Character[]
     }
 }

@@ -56,6 +56,7 @@ const ONE_CHARACTER = gql`
 const ONE_EPISODE = gql`
   query Episode($id: ID!){
     episode(id: $id){
+      __typename
       id
       name
       air_date
@@ -72,11 +73,13 @@ const ONE_EPISODE = gql`
 const ONE_LOCATION = gql`
   query Location($id: ID!){
     location(id: $id){
+      __typename
       id
       name
       dimension
       type
       residents{
+        __typename
         id
         name
         image
@@ -85,4 +88,39 @@ const ONE_LOCATION = gql`
   }
 `
 
-export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE, ONE_LOCATION}
+const FILTER_CHARACTERS = gql`
+  query FilterCharacters($page: Int, $param: FilterCharacter){
+    characters(page: $page, filter: $param){
+      info{
+        count
+        pages
+        next
+        prev
+      }
+      results{
+        __typename
+        id
+        name
+        species
+        type
+        status
+        episode{
+          __typename
+          id
+          name
+          air_date
+          episode
+        }
+        location{
+          __typename
+          id
+          name
+          dimension
+        }
+        image
+      }
+    }
+  }
+`
+
+export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE, ONE_LOCATION, FILTER_CHARACTERS}

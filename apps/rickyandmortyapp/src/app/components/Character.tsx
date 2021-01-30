@@ -14,6 +14,15 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
                 border-radius: 0.5rem;
                 margin: 1rem 2rem 1rem 2rem;
                 color: var(--text);
+
+                @keyframes Image {
+                    from {
+                        opacity: 0
+                    }
+                    to{
+                        opacity: 1
+                    }
+                }
             `}
         >
 
@@ -23,7 +32,8 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
                     maxWidth: "23rem",
                     maxHeight: "21rem",
                     margin: "0",
-                    borderRadius: "0.5rem"
+                    borderRadius: "0.5rem",
+                    animation: "Image .3s linear"
                 }}
                 src={character.image} alt={character.name + ' image'}
             />
