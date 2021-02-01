@@ -1,6 +1,6 @@
 import React from 'react';
 import {css, Global} from '@emotion/react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, HashRouter , Switch, Route} from 'react-router-dom'
 
 import rickAndMortyLogo from '../assets/rickandmortylogo.png'
 import Navbar from './components/Navbar';
@@ -20,7 +20,7 @@ export function App() {
     <main
       css={css`height: 100%;`}
     >
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Global 
           styles={{
@@ -121,7 +121,7 @@ export function App() {
           </Switch>
         </section>
 
-      </BrowserRouter>
+      </HashRouter>
       <Footer />
     </main>
   );
