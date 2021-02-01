@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 import { useQuery } from '@apollo/client'
 import { API_INFORMATION } from '../../common/queries/queries'
 import { ApiInformation } from '../../common/interfaces/Api'
+import Loading from './Loading'
 
 const Footer = () => {
 
@@ -27,7 +28,7 @@ const Footer = () => {
                     margin-right: 2rem;
                 }
             `}>
-                <span>CHARACTERS: {data.apiInformation.characters} </span>
+                <span>CHARACTERS: {data.apiInformation.characters}</span>
                 <span>LOCATIONS: {data.apiInformation.locations}</span>
                 <span>EPISODES: {data.apiInformation.episodes}</span>
             </article>

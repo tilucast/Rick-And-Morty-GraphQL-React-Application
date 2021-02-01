@@ -23,6 +23,10 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
                         opacity: 1
                     }
                 }
+
+                @media (max-width: 933px){
+                    font-size: 120%;
+                }
             `}
         >
 

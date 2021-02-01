@@ -16,9 +16,6 @@ const Location = () => {
     if(loading) return <Loading />
     if(error) return <p>An error: {error} has occurred.</p>
 
-    console.log(data);
-    
-
     return (
         <section 
             css={css`

@@ -35,13 +35,13 @@ const About = () => {
                     font-size: 3rem;
                     margin-bottom: 1rem;
                 `}
-            >Rick and Morty GraphQL React GUI</h1>
+            >Rick and Morty GUI</h1>
 
             <article>
                 <h3>What is this?</h3>
                 <p>
                     This is a "GUI" for the <a href="https://rickandmortyapi.com/">Rick and Morty API</a>. 
-                    This project is basically a interface for you to see details about the show, like, details about a specific character,
+                    This project is basically a interface for you to see details about the show. For example, details about a specific character,
                     in which episodes certain character appears, etc.
                     I took inspiration to design this project from the api documentation website, thats why both look almost identical, but i have
                     nothing to do with the people behind the API.
