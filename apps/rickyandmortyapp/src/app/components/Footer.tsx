@@ -1,10 +1,13 @@
 import React from 'react'
 import { css } from '@emotion/react'
+import { useQuery } from '@apollo/client'
+import { API_INFORMATION } from '../../common/queries/queries'
+import { ApiInformation } from '../../common/interfaces/Api'
 
 const Footer = () => {
 
-    const {characters, locations, episodes} = JSON.parse(localStorage.getItem("apiInformation"))
-    
+    const {data} = useQuery<ApiInformation>(API_INFORMATION)
+
     return (
         <footer
             css={css`
@@ -24,9 +27,9 @@ const Footer = () => {
                     margin-right: 2rem;
                 }
             `}>
-                <span>CHARACTERS: {characters}</span>
-                <span>LOCATIONS: {locations}</span>
-                <span>EPISODES: {episodes}</span>
+                <span>CHARACTERS: {data.apiInformation.characters} </span>
+                <span>LOCATIONS: {data.apiInformation.locations}</span>
+                <span>EPISODES: {data.apiInformation.episodes}</span>
             </article>
 
             <span>

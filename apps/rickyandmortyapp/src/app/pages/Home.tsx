@@ -6,6 +6,7 @@ import { css } from '@emotion/react'
 import CharacterComponent from '../components/Character'
 import {ApolloCharactersInterface, Character} from '../../common/interfaces/Character'
 import Loading from '../components/Loading'
+import { apiInformation } from '../../cache'
 
 const Home = () => {
     const number = Number((Math.random() * 30).toFixed(0))
@@ -18,6 +19,7 @@ const Home = () => {
     
     const info = {characters: data.characters.info.count, locations: data2.locations.info.count, episodes: data2.episodes.info.count}
     localStorage.setItem("apiInformation", JSON.stringify(info))
+    apiInformation(info)
 
     return (
       <section
