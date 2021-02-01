@@ -9,7 +9,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { withStyles } from '@material-ui/core/styles';
-import Pagination from '@material-ui/lab/Pagination';
+import PaginationComponent from '../components/Pagination'
 
 
 const Filters = () => {
@@ -18,8 +18,10 @@ const Filters = () => {
     const [selectedFilter, setSelectedFilter] = useState("name")
     const [page, setPage] = useState(1)
     
-    const [filter, {data, loading, error}] = useLazyQuery<ApolloCharactersInterface>(FILTER_CHARACTERS, {variables: 
-        {param: {[`${selectedFilter}`]: textFilter}, page: page}})
+    const [filter, {data, loading, error,}] = useLazyQuery<ApolloCharactersInterface>(FILTER_CHARACTERS, {variables: 
+        {param: {[`${selectedFilter}`]: textFilter}, page: page}, onCompleted: () => setCountOfPages(data.characters.info.pages)})
+    
+    const [countOfPages, setCountOfPages] = useState(0)
 
     const debounce = (callback, delay) => {
         let timerId;
@@ -35,8 +37,9 @@ const Filters = () => {
         setTextFilter(event.target.value)
         if(event.target.value.length == 0 || event.target.value.length == 1 ) {
             setTextFilter(null)
+            setCountOfPages(0)
         }
-        debounce(filter(), 700)  
+        debounce((filter()), 700)
     }
 
     const handleSelect = (event: ChangeEvent<HTMLInputElement>) => {
@@ -137,51 +140,11 @@ const Filters = () => {
                         <FormControlLabel value="type" control={<StyledRadio />} label="Type" />
                     </RadioGroup>
                 </article>
+
+                <PaginationComponent pages={{page, countOfPages}} handlePageChange={handlePageChange} />
             </form>
 
-            {!data || <Pagination 
-                page={page} 
-                count={data && data.characters.info.pages} 
-                onChange={handlePageChange}
-                color='primary'
-                css={css`
-                    margin: 2rem 0 2rem 2rem;
-
-                    ul li button{
-                        color: var(--text);
-
-                        &:hover{
-                            background-color: var(--hover);
-                        }
-                    }
-
-                    .MuiPaginationItem-textPrimary.Mui-selected{
-                        background-color: var(--hover);
-                        transition: all .2s;
-                        &:hover{
-                            background-color: rgb(212, 128, 70);
-                            
-                        }
-                    }
-
-                    .MuiPaginationItem-textPrimary.Mui-selected.Mui-focusVisible{
-                        background-color: var(--hover);
-                    }
-
-                    .MuiPaginationItem-ellipsis{
-                        font-size: 2rem;
-                        color: var(--text);    
-                    }
-
-                    .MuiPaginationItem-icon{
-                        font-size: 2rem;
-                    }
-
-                    .MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-page.MuiPaginationItem-textPrimary{
-                        font-size: 1.5rem;
-                    }
-                `}
-            />}
+            
 
             <article
                 css={css`

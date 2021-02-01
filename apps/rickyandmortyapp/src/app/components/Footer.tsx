@@ -2,17 +2,33 @@ import React from 'react'
 import { css } from '@emotion/react'
 
 const Footer = () => {
+
+    const {characters, locations, episodes} = JSON.parse(localStorage.getItem("apiInformation"))
+    
     return (
         <footer
             css={css`
                 padding: 8rem 0;
                 background-color: var(--darker-background);
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 color: var(--text-gray);
             `}
-        >
+        >   
+
+            <article css={css`
+                margin-bottom: 3rem;
+                & :not(:last-child){
+                    margin-right: 2rem;
+                }
+            `}>
+                <span>CHARACTERS: {characters}</span>
+                <span>LOCATIONS: {locations}</span>
+                <span>EPISODES: {episodes}</span>
+            </article>
+
             <span>
                 ❮❯ by 
                 <a href="https://github.com/tilucast" target="blank" 
@@ -30,6 +46,7 @@ const Footer = () => {
                 >
                     Lucas Tavares
                 </a> 2021
+                
             </span>
         </footer>
     )

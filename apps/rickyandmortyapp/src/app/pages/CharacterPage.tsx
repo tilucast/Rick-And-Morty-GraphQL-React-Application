@@ -95,7 +95,7 @@ const CharacterPage = () => {
                     </article>
 
                     <article
-                        css={css`${data.character.location.dimension.length >= 17 && 'margin-left: 2rem;'}`}
+                        css={css`${data.character.location.dimension?.length >= 17 && 'margin-left: 2rem;'}`}
                         id={String(data.character.location.id)}
                     >
                         <span>

@@ -30,6 +30,7 @@ interface ApolloCharacterInterface {
 interface ApolloCharactersInterface {
     characters: {
         info: {
+            count: number,
             pages: number,
             next: number,
             prev: number

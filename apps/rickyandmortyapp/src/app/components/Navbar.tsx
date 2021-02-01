@@ -25,25 +25,23 @@ const Navbar = () => {
                 </NavLink>
                 
             </section>
+
+            
             
 
             <section css={css`
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                font-size: 1.5rem;
+                
                 font-weight: 600;
              `}>
+                 <NavLink to="/filters" css={css`${navLinks}`} >
+                    FILTERS
+                </NavLink>
+
                 <NavLink to="/about" 
-                    css={css`
-                        color: var(--background);
-                        text-decoration: none;
-                        transition: all .2s;
-                        margin-right: 2rem;
-                        &:hover{
-                            color: var(--hover);
-                        }
-                    `}
+                    css={css`${navLinks}`}
                     href="/about"
                 >ABOUT
                 </NavLink>
@@ -55,6 +53,7 @@ const Navbar = () => {
                     padding: 1rem 1.7rem;
                     border-radius: 8px;
                     transition: all .2s;
+                    font-size: 1.5rem;
                     &:hover{
                         background-color: var(--hover);
                         color: var(--text);
@@ -72,5 +71,16 @@ const Navbar = () => {
         
     )
 }
+
+const navLinks = css`
+    color: var(--background);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all .2s;
+    margin-right: 2rem;
+    &:hover{
+        color: var(--hover);
+    }
+`
 
 export default Navbar

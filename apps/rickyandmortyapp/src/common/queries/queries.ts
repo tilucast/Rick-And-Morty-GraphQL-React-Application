@@ -3,6 +3,13 @@ import { gql } from "@apollo/client";
 const CHARACTERS = gql`
   query Characters($number: Int) {
     characters(page: $number){
+      info{
+          __typename
+          count
+          pages
+          next
+          prev
+        }
       results {
         __typename
         id
@@ -123,4 +130,26 @@ const FILTER_CHARACTERS = gql`
   }
 `
 
-export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE, ONE_LOCATION, FILTER_CHARACTERS}
+const API_INFORMATION_COUNT = gql`
+  query apiInformationCount {
+    episodes{
+      info{
+        count
+        pages
+        next
+        prev
+      }
+    }
+    locations{
+      info{
+        count
+        pages
+        next
+        prev
+      }
+    }
+  }
+  
+`
+
+export {CHARACTERS, ONE_CHARACTER, ONE_EPISODE, ONE_LOCATION, FILTER_CHARACTERS, API_INFORMATION_COUNT}
