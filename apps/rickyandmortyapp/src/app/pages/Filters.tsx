@@ -11,7 +11,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { withStyles } from '@material-ui/core/styles';
 import PaginationComponent from '../components/Pagination'
 
-
 const Filters = () => {
 
     const [textFilter, setTextFilter] = useState("")
@@ -144,8 +143,6 @@ const Filters = () => {
                 <PaginationComponent pages={{page, countOfPages}} handlePageChange={handlePageChange} />
             </form>
 
-            
-
             <article
                 css={css`
                     display: flex;
@@ -157,16 +154,13 @@ const Filters = () => {
                 {loading ? <Loading /> :  (data && data.characters.results.map((character: Character) => (
                     <CharacterComponent key={character.id} character={character} />
                 )))}
-            </article>
-
-            
+            </article>            
 
         </section>
     )
 }
 
 const StyledRadio = withStyles({
-    
 })(Radio)
 
 export default Filters

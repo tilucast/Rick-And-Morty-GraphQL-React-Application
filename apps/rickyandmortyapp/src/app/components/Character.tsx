@@ -88,12 +88,12 @@ const CharacterComponent: React.FC<{character: Character}> = ({character}) => {
             <span>
                 <p css={descriptionText}> Last known location:</p>
 
-                <Link to={`/location/${character.location.id}`} css={css`
+                {(character.location.name !== "unknown" || !character.location.name) ? <Link to={`/location/${character.location.id}`} css={css`
                     color: var(--text);
                     ${[baseText, activeText]}
                 `}>
                     {character.location.name}
-                </Link>
+                </Link> : <p>{character.location.name}</p>}
             </span>
 
             <span>

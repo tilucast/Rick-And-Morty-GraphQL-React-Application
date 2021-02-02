@@ -104,17 +104,17 @@ const CharacterPage = () => {
                                 ${descriptionText}
                             `}> Last known location:</p>
 
-                            <Link to={`/location/${data.character.location.id}`} css={css`
+                            {data.character.location.name !== "unknown" ? <Link to={`/location/${data.character.location.id}`} css={css`
                                 display: block;
                                 color: var(--text);
                                 ${[baseText, activeText]}
                                 
                             `}>
                                 {data.character.location.name}
-                            </Link>
+                            </Link> :  <p>{data.character.location.name}</p>}
                         </span>
 
-                        <span>Dimension: {data.character.location.dimension}</span>
+                        <span>Dimension: {data.character.location.dimension || "unknown"}</span>
                     </article>
 
                 </div>
