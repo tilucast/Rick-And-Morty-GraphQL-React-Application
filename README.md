@@ -1,9 +1,9 @@
 <p align="center"><img src="./rickandmortygui.png"></img></p>
 https://rickandmortygui.netlify.app 
 
-# Ricky And Morty GUI
+# Ricky And Morty Web App
 
-This a GUI for Rick And Morty, using the public <a href="https://rickandmortyapi.com/">Rick And Morty API</a>.
+<a href="https://rickandmortyapi.com/">Rick And Morty API</a>.
 
 ## Things to notice
 
@@ -22,7 +22,3 @@ This is a simple React SPA app.
 And thats pretty much it, the rest is just Nx stuff, or minor things. And of course, this project is built with Typescript.
 
 This project was generated using [Nx](https://nx.dev).
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
