@@ -1,5 +1,5 @@
 <p align="center"><img src="./rickandmortygui.png"></img></p>
-https://rickandmortygui.netlify.app 
+https://rickandmortywebsite.netlify.app/
 
 # Ricky And Morty Web App
 
